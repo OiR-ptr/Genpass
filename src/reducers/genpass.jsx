@@ -1,6 +1,14 @@
 import React from "react";
-import {INITIAL_STATE} from "../actions/CommandActions";
 
-export default function genpass(state = INITIAL_STATE, action) {
-    return state;
+const initialState = {
+};
+
+export default function genpass(state = initialState, action) {
+    switch(action.type) {
+        case `GENERATE_PASSWORD`:
+            return state;
+
+        default:
+            return state;
+    }
 }
