@@ -82,8 +82,12 @@ var _electron = __webpack_require__(52);
 
 var _createWindow = __webpack_require__(96);
 
+var _createWindow2 = _interopRequireDefault(_createWindow);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 _electron.app.on("ready", function () {
-    (0, _createWindow.createWindow)();
+    (0, _createWindow2.default)();
 });
 
 _electron.app.on("window-all-closed", function () {
@@ -94,7 +98,7 @@ _electron.app.on("window-all-closed", function () {
 
 _electron.app.on("activate", function (_e, hasVisibleWindows) {
     if (!hasVisibleWindows) {
-        (0, _createWindow.createWindow)();
+        (0, _createWindow2.default)();
     }
 });
 
@@ -109,6 +113,7 @@ _electron.app.on("activate", function (_e, hasVisibleWindows) {
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
+exports.default = createWindow;
 
 var _electron = __webpack_require__(52);
 
@@ -121,8 +126,6 @@ function createWindow() {
         win = null;
     });
 }
-
-exports.default = createWindow;
 
 /***/ })
 

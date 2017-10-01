@@ -1,5 +1,5 @@
 import {app} from "electron";
-import {createWindow} from "./createWindow";
+import createWindow from "./createWindow";
 
 app.on("ready", () => {
     createWindow();

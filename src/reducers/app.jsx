@@ -9,4 +9,4 @@ import genpass from "../reducers/genpass";
 let store = createStore(genpass);
 
 let rootElement = document.getElementById("root");
-render(<Provider store={store}></Provider>, rootElement);
+render(<Provider store={store}><Genpass /></Provider>, rootElement);

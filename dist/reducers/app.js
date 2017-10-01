@@ -11000,7 +11000,11 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var store = (0, _redux.createStore)(_genpass4.default);
 
 var rootElement = document.getElementById("root");
-(0, _reactDom.render)(_react2.default.createElement(_reactRedux.Provider, { store: store }), rootElement);
+(0, _reactDom.render)(_react2.default.createElement(
+  _reactRedux.Provider,
+  { store: store },
+  _react2.default.createElement(_genpass2.default, null)
+), rootElement);
 
 /***/ }),
 /* 98 */
@@ -24475,9 +24479,13 @@ var GenPass = function (_React$Component) {
     }
 
     _createClass(GenPass, [{
-        key: "renderer",
-        value: function renderer() {
-            return _react2.default.createElement("div", null);
+        key: "render",
+        value: function render() {
+            return _react2.default.createElement(
+                "div",
+                null,
+                "\u71B1\u76DB"
+            );
         }
     }]);
 

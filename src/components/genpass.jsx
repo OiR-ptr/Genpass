@@ -5,7 +5,7 @@ export default class GenPass extends React.Component {
         super(props);
     }
 
-    renderer() {
-        return (<div></div>);
+    render() {
+        return (<div>熱盛</div>);
     }
 }
