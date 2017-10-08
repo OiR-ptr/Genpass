@@ -10,10 +10,11 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
     return {
+        // bind action creators Actions, dispatch
         handleClick: () => {
             dispatch(increment())
         }
     };
 }
 
-export default connect(mapStateToProps)(GenPass);
+export default connect(mapStateToProps, mapDispatchToProps)(GenPass);

@@ -1,4 +1,5 @@
 import React from "react";
+import LoginForm from "./loginform";
 
 export default class GenPass extends React.Component {
     constructor(props) {
@@ -6,6 +7,10 @@ export default class GenPass extends React.Component {
     }
 
     render() {
-        return (<div>熱盛</div>);
+        return (
+            <div>
+                <LoginForm/>
+            </div>
+        );
     }
 }
