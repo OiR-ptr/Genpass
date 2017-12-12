@@ -4,16 +4,23 @@ import {createStore} from "redux";
 import {Provider} from "react-redux";
 import MuiProvider from "material-ui/styles/MuiThemeProvider";
 
-import Genpass from "../components/genpass";
-import genpass from "../reducers/genpass";
+import LoginForm from "../containers/loginform";
+import reducer from "../reducers/loginform";
 
-let store = createStore(genpass);
+import TagList from "../components/TagList";
 
+let store = createStore(reducer);
 let rootElement = document.getElementById("root");
+
+const tagItems = [
+    { title: "1" },
+    { title: "2" }
+];
+
 render(
     <Provider store={store}>
         <MuiProvider>
-            <Genpass />
+            <TagList tags = {tagItems}/>
         </MuiProvider>
     </Provider>, 
     rootElement

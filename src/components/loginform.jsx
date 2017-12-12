@@ -24,6 +24,9 @@ export default class LoginForm extends React.Component {
             },
             signin: {
                 margin: 12
+            },
+            signup: {
+                margin: 12
             }
         }
 
@@ -46,11 +49,14 @@ export default class LoginForm extends React.Component {
                         label = "Sign in"
                         primary = {true}
                         style = {formStyles.signin}
+                        onClick = {this.props.onSignIn}
                     />
                     <RaisedButton
                         label = "Create new account"
-                        style = {formStyles.signin}
-                    />
+                        style = {formStyles.signup}
+                        onClick = {this.props.onSignUp}
+                    /><br />
+                    <div>{this.props.userCount}</div>
                 </center>
             </div>
         );

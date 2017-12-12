@@ -1,5 +1,5 @@
 import React from "react";
-import LoginForm from "./loginform";
+import LoginForm from "../containers/loginform";
 
 export default class GenPass extends React.Component {
     constructor(props) {
@@ -9,7 +9,7 @@ export default class GenPass extends React.Component {
     render() {
         return (
             <div>
-                <LoginForm/>
+                <LoginForm />
             </div>
         );
     }

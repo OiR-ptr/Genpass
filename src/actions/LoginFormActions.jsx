@@ -3,25 +3,27 @@ export const SIGNIN = `SIGNIN`;
 export const SIGNOUT = `SIGNOUT`;
 export const GENERATE_PASSWORD = `GENERATE_PASSWORD`;
 
-export function signUp() {
+// ActionCreators
+
+export function signUpEvent() {
     return {
         type: SIGNUP
     };
 }
 
-export function signIn() {
+export function signInEvent() {
     return {
         type: SIGNIN
     };
 }
 
-export function signOut() {
+export function signOutEvent() {
     return {
         type: SIGNOUT
     };
 }
 
-export function generatePassword(seed_password, seed_id) {
+export function generatePasswordEvent(seed_password, seed_id) {
     return {
         type: GENERATE_PASSWORD,
         seed_password,
