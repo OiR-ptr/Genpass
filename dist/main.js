@@ -60,12 +60,19 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 439);
+/******/ 	return __webpack_require__(__webpack_require__.s = 544);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ 439:
+/***/ 53:
+/***/ (function(module, exports) {
+
+module.exports = require("electron");
+
+/***/ }),
+
+/***/ 544:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -145,20 +152,20 @@
     /******/__webpack_require__.p = "";
     /******/
     /******/ // Load entry module and return exports
-    /******/return __webpack_require__(__webpack_require__.s = 180);
+    /******/return __webpack_require__(__webpack_require__.s = 173);
     /******/
 })(
 /************************************************************************/
 /******/{
 
-    /***/180:
+    /***/173:
     /***/function _(module, exports, __webpack_require__) {
 
         "use strict";
 
-        var _electron = __webpack_require__(56);
+        var _electron = __webpack_require__(52);
 
-        var _createWindow = __webpack_require__(181);
+        var _createWindow = __webpack_require__(174);
 
         var _createWindow2 = _interopRequireDefault(_createWindow);
 
@@ -185,7 +192,7 @@
         /***/
     },
 
-    /***/181:
+    /***/174:
     /***/function _(module, exports, __webpack_require__) {
 
         "use strict";
@@ -195,7 +202,7 @@
         });
         exports.default = createWindow;
 
-        var _electron = __webpack_require__(56);
+        var _electron = __webpack_require__(52);
 
         var win = void 0;
 
@@ -210,23 +217,16 @@
         /***/
     },
 
-    /***/56:
+    /***/52:
     /***/function _(module, exports) {
 
-        module.exports = __webpack_require__(56);
+        module.exports = __webpack_require__(53);
 
         /***/
     }
 
     /******/ });
 //# sourceMappingURL=index.js.map
-
-/***/ }),
-
-/***/ 56:
-/***/ (function(module, exports) {
-
-module.exports = require("electron");
 
 /***/ })
 

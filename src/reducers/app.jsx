@@ -4,9 +4,7 @@ import {createStore} from "redux";
 import {Provider} from "react-redux";
 import MuiProvider from "material-ui/styles/MuiThemeProvider";
 
-import LoginForm from "../containers/loginform";
-import reducer from "../reducers/loginform";
-
+import reducer from "../reducers/genpass";
 import TagList from "../components/TagList";
 
 let store = createStore(reducer);
