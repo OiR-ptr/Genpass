@@ -5,20 +5,15 @@ import {Provider} from "react-redux";
 import MuiProvider from "material-ui/styles/MuiThemeProvider";
 
 import reducer from "../reducers/genpass";
-import TagList from "../components/TagList";
+import GenPass from "../components/GenPass";
 
 let store = createStore(reducer);
 let rootElement = document.getElementById("root");
 
-const tagItems = [
-    { title: "1" },
-    { title: "2" }
-];
-
 render(
     <Provider store={store}>
         <MuiProvider>
-            <TagList tags = {tagItems}/>
+            <GenPass />
         </MuiProvider>
     </Provider>, 
     rootElement

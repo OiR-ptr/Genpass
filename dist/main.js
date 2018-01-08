@@ -60,7 +60,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 544);
+/******/ 	return __webpack_require__(__webpack_require__.s = 547);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -72,7 +72,7 @@ module.exports = require("electron");
 
 /***/ }),
 
-/***/ 544:
+/***/ 547:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -152,20 +152,20 @@ module.exports = require("electron");
     /******/__webpack_require__.p = "";
     /******/
     /******/ // Load entry module and return exports
-    /******/return __webpack_require__(__webpack_require__.s = 173);
+    /******/return __webpack_require__(__webpack_require__.s = 293);
     /******/
 })(
 /************************************************************************/
 /******/{
 
-    /***/173:
+    /***/293:
     /***/function _(module, exports, __webpack_require__) {
 
         "use strict";
 
-        var _electron = __webpack_require__(52);
+        var _electron = __webpack_require__(53);
 
-        var _createWindow = __webpack_require__(174);
+        var _createWindow = __webpack_require__(294);
 
         var _createWindow2 = _interopRequireDefault(_createWindow);
 
@@ -192,7 +192,7 @@ module.exports = require("electron");
         /***/
     },
 
-    /***/174:
+    /***/294:
     /***/function _(module, exports, __webpack_require__) {
 
         "use strict";
@@ -202,7 +202,7 @@ module.exports = require("electron");
         });
         exports.default = createWindow;
 
-        var _electron = __webpack_require__(52);
+        var _electron = __webpack_require__(53);
 
         var win = void 0;
 
@@ -217,7 +217,7 @@ module.exports = require("electron");
         /***/
     },
 
-    /***/52:
+    /***/53:
     /***/function _(module, exports) {
 
         module.exports = __webpack_require__(53);
