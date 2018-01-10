@@ -1,14 +1,22 @@
 import React from "react";
 
-import Paper from "material-ui/Paper";
-
 import TagList from "../components/TagList";
 
 export default class GenPass extends React.Component {
     render() {
         const tagItems = [
             { title: "1" },
-            { title: "2" }
+            { title: "2" },
+            { title: "3" },
+            { title: "4" },
+            { title: "5" },
+            { title: "6" },
+            { title: "7" },
+            { title: "8" },
+            { title: "9" },
+            { title: "10" },
+            { title: "11" },
+            { title: "12" }
         ];
 
         return (

@@ -1,6 +1,8 @@
 import React from "react";
 import Tag from "./Tag";
-import { List } from "material-ui/List";
+
+import {GridList, GridTile} from "material-ui/GridList";
+import Subheader from "material-ui/Subheader";
 
 export default class TagList extends React.Component {
     render() {
@@ -10,9 +12,10 @@ export default class TagList extends React.Component {
         }
 
         return (
-            <List>
+            <GridList cellHeight = {180} cols = {2} style = {{overflowY: "auto"}}>
+                <Subheader>Header</Subheader>
                 {list}
-            </List>
+            </GridList>
         );
     }
 }
