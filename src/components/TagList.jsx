@@ -8,6 +8,10 @@ import Subheader from "material-ui/Subheader";
 
 export default class TagList extends React.Component {
     render() {
+        function alm() {
+            alert("Click;");
+        }
+
         var list = [];
         for(var i in this.props.tags) {
             list.push(<Tag key = {i.tagID} title = "can you smell that?" abstract = "its smells good." />);
@@ -37,7 +41,7 @@ export default class TagList extends React.Component {
                     title = "menu"
                     titleStyle={styles.titleStyle}
                     titleBackground = "linear-gradient(to bottom, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.3) 70%, rgba(0,0,0,0) 100%)"
-                    actionIcon = { <IconButton><AddCircle color = "rgb(0, 188, 212)" /></IconButton> }
+                    actionIcon = { <IconButton onClick = { (e) => { this.props.addTag(0) } }><AddCircle color = "rgb(0, 188, 212)" /></IconButton> }
                     cols = {2}
                     rows = {1}
                     >

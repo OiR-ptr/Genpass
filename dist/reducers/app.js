@@ -49294,6 +49294,7 @@ function genpass() {
     var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initialState;
     var action = arguments[1];
 
+    alert("call genpass reducers.");
     switch (action.type) {
         case _Actions.ADD_TAG:
             return Object.assign({}, state, {
@@ -49640,15 +49641,13 @@ var GenPass = function (_React$Component) {
     _createClass(GenPass, [{
         key: "render",
         value: function render() {
-            var tagItems = [{ tagID: 1, title: "1" }, { tagID: 2, title: "2" }, { tagID: 3, title: "3" }, { tagID: 4, title: "4" }, { tagID: 5, title: "5" }, { tagID: 6, title: "6" }, { tagID: 7, title: "7" }, { tagID: 8, title: "8" }, { tagID: 9, title: "9" }, { tagID: 10, title: "10" }, { tagID: 11, title: "11" }, { tagID: 12, title: "12" }];
-
             return _react2.default.createElement(
                 "div",
                 null,
                 _react2.default.createElement(
                     "div",
                     { style: { width: "30%", float: "left", backgroundColor: "#00FF00" } },
-                    _react2.default.createElement(_TagList2.default, { key: "0", tags: tagItems })
+                    _react2.default.createElement(_TagList2.default, { key: "0", tags: this.props.tags })
                 ),
                 _react2.default.createElement(
                     "div",
@@ -49723,6 +49722,12 @@ var TagList = function (_React$Component) {
     _createClass(TagList, [{
         key: "render",
         value: function render() {
+            var _this2 = this;
+
+            function alm() {
+                alert("Click;");
+            }
+
             var list = [];
             for (var i in this.props.tags) {
                 list.push(_react2.default.createElement(_Tag2.default, { key: i.tagID, title: "can you smell that?", abstract: "its smells good." }));
@@ -49754,10 +49759,12 @@ var TagList = function (_React$Component) {
                         key: 0,
                         title: "menu",
                         titleStyle: styles.titleStyle,
-                        titleBackground: "linear-gradient(to bottom, rgba(0,0,0,0.7) 0%,rgba(0,0,0,0.3) 70%,rgba(0,0,0,0) 100%)",
+                        titleBackground: "linear-gradient(to bottom, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.3) 70%, rgba(0,0,0,0) 100%)",
                         actionIcon: _react2.default.createElement(
                             _IconButton2.default,
-                            null,
+                            { onClick: function onClick(e) {
+                                    _this2.props.addTag(0);
+                                } },
                             _react2.default.createElement(_addCircle2.default, { color: "rgb(0, 188, 212)" })
                         ),
                         cols: 2,

@@ -6,6 +6,7 @@ const initialState = {
 };
 
 export default function genpass(state = initialState, action) {
+    alert("call genpass reducers.");
     switch(action.type) {
         case ADD_TAG:
             return Object.assign({}, state, {
