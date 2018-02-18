@@ -6,7 +6,14 @@ import IconButton from "material-ui/IconButton";
 import AddCircle from "material-ui/svg-icons/content/add-circle";
 import Subheader from "material-ui/Subheader";
 
-export default class TagList extends React.Component {
+import {connect} from "react-redux";
+import {addTagEvent} from "../actions/Actions";
+
+class TagList extends React.Component {
+    handleWork() {
+        this.props.dispatch(addTagEvent(1));
+    }
+
     render() {
         var list = [];
         for(var i in this.props.tags) {
@@ -37,7 +44,7 @@ export default class TagList extends React.Component {
                     title = "menu"
                     titleStyle={styles.titleStyle}
                     titleBackground = "linear-gradient(to bottom, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.3) 70%, rgba(0,0,0,0) 100%)"
-                    actionIcon = { <IconButton><AddCircle color = "rgb(0, 188, 212)" /></IconButton> }
+                    actionIcon = { <IconButton onClick={() => this.handleWork()}><AddCircle color = "rgb(0, 188, 212)" /></IconButton> }
                     cols = {2}
                     rows = {1}
                     >
@@ -48,3 +55,5 @@ export default class TagList extends React.Component {
         );
     }
 }
+
+export default connect()(TagList)

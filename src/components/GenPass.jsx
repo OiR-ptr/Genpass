@@ -1,6 +1,6 @@
 import React from "react";
 
-import TagList from "../components/TagList";
+import TagList from "../containers/TagList";
 
 export default class GenPass extends React.Component {
     render() {
@@ -22,7 +22,7 @@ export default class GenPass extends React.Component {
         return (
             <div>
                 <div style = {{width: "30%", float: "left", backgroundColor: "#00FF00"}}>
-                    <TagList key="0" tags = {tagItems} />
+                    <TagList key="0" />
                 </div>
                 <div style = {{width: "70%", float: "right", backgroundColor: "#FF0000"}} >
                     <div style = {{float: "left"}} >
