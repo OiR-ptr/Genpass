@@ -1,19 +1,20 @@
 import React from "react";
-import {connect} from "react-redux";
 
-import {addTagEvent} from "../actions/Actions";
-import TagList from "../components/TagList";
+import * as actions from "../actions/Actions";
 
-function mapStateToProps() {
-    return state;
+export default class TagList extends React.Component {
+    render() {
+        const { tagID, actions } = this.props;
+
+        return (
+            <div>
+                
+            </div>
+        );
+    }
 }
 
-function mapDispatchToProps(dispatch) {
+const mapStateToProps = (state, ownProps) => {
     return {
-        addTag: (tagID) => {
-            dispatch(addTagEvent(tagID))
-        }
-    };
+    }
 }
-
-export default connect(mapStateToProps, mapDispatchToProps)(TagList);

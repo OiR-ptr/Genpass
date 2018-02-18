@@ -2,7 +2,8 @@ import React from "react";
 import { ADD_TAG } from "../actions/Actions";
 
 const initialState = {
-    tags: []
+    tags: [],
+    tag_count: 0,
 };
 
 export default function genpass(state = initialState, action) {
