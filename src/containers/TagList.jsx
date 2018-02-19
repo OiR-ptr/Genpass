@@ -13,7 +13,7 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
     return {
-        addTag(tag_count) {
+        addTag(tagID) {
             dispatch(addTagEvent(tagID));
         }
     };

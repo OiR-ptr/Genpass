@@ -6,12 +6,9 @@ import IconButton from "material-ui/IconButton";
 import AddCircle from "material-ui/svg-icons/content/add-circle";
 import Subheader from "material-ui/Subheader";
 
-import {connect} from "react-redux";
-import {addTagEvent} from "../actions/Actions";
-
-class TagList extends React.Component {
+export default class TagList extends React.Component {
     handleWork() {
-        this.props.dispatch(addTagEvent(1));
+        this.props.addTag(this.props.tagID);
     }
 
     render() {
@@ -55,5 +52,3 @@ class TagList extends React.Component {
         );
     }
 }
-
-export default connect()(TagList)

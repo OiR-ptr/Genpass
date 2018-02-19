@@ -8,10 +8,11 @@ const initialState = {
 
 export default function genpass(state = initialState, action) {
     alert("call of reducer");
+    alert(state.tag_count);
     switch(action.type) {
         case ADD_TAG:
             return Object.assign({}, state, {
-                tag_count: tag_count + 1,
+                tag_count: state.tag_count + 1,
                 // tags: [
                 //     ...state.tags.slice(0, action.tagID),
                 //     Object.assign({}, state.tags[action.tagID], {
