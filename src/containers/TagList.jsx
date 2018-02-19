@@ -1,5 +1,4 @@
 import React from "react";
-import {connect} from "react-redux";
 
 import TagList from "../components/TagList";
 import {addTagEvent} from "../actions/Actions";
@@ -18,5 +17,3 @@ function mapDispatchToProps(dispatch) {
         }
     };
 }
-
-export default connect(mapStateToProps, mapDispatchToProps)(TagList);
