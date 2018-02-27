@@ -6,7 +6,7 @@ import GridTile from "material-ui/GridList/GridTile";
 export default class Tag extends React.Component {
     render() {
         return (
-            <GridTile>
+            <GridTile onClick = { (e) => { this.props.selectTag( this.props.tagID ) } }>
                 <ListItem 
                     primaryText = {this.props.title}
                     secondaryText = {this.props.abstract}
