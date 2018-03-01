@@ -60,20 +60,20 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 298);
+/******/ 	return __webpack_require__(__webpack_require__.s = 304);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ 298:
+/***/ 304:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var _electron = __webpack_require__(53);
+var _electron = __webpack_require__(56);
 
-var _createWindow = __webpack_require__(299);
+var _createWindow = __webpack_require__(305);
 
 var _createWindow2 = _interopRequireDefault(_createWindow);
 
@@ -97,7 +97,7 @@ _electron.app.on("activate", function (_e, hasVisibleWindows) {
 
 /***/ }),
 
-/***/ 299:
+/***/ 305:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -108,7 +108,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = createWindow;
 
-var _electron = __webpack_require__(53);
+var _electron = __webpack_require__(56);
 
 var win = void 0;
 
@@ -122,7 +122,7 @@ function createWindow() {
 
 /***/ }),
 
-/***/ 53:
+/***/ 56:
 /***/ (function(module, exports) {
 
 module.exports = require("electron");

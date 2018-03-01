@@ -7,10 +7,10 @@ export default class GenPass extends React.Component {
     render() {
         return (
             <div>
-                <div style = {{width: "30%", float: "left", backgroundColor: "#00FF00"}}>
+                <div style = {{width: "30%", float: "left"}}>
                     <TagList />
                 </div>
-                <div style = {{width: "70%", float: "right", backgroundColor: "#FF0000"}} >
+                <div style = {{width: "70%", float: "right"}} >
                     <div style = {{float: "left"}} >
                         <MainContent />
                     </div>

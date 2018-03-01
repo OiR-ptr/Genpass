@@ -60,19 +60,19 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 551);
+/******/ 	return __webpack_require__(__webpack_require__.s = 572);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ 53:
+/***/ 56:
 /***/ (function(module, exports) {
 
 module.exports = require("electron");
 
 /***/ }),
 
-/***/ 551:
+/***/ 572:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -152,20 +152,20 @@ module.exports = require("electron");
     /******/__webpack_require__.p = "";
     /******/
     /******/ // Load entry module and return exports
-    /******/return __webpack_require__(__webpack_require__.s = 298);
+    /******/return __webpack_require__(__webpack_require__.s = 304);
     /******/
 })(
 /************************************************************************/
 /******/{
 
-    /***/298:
+    /***/304:
     /***/function _(module, exports, __webpack_require__) {
 
         "use strict";
 
-        var _electron = __webpack_require__(53);
+        var _electron = __webpack_require__(56);
 
-        var _createWindow = __webpack_require__(299);
+        var _createWindow = __webpack_require__(305);
 
         var _createWindow2 = _interopRequireDefault(_createWindow);
 
@@ -192,7 +192,7 @@ module.exports = require("electron");
         /***/
     },
 
-    /***/299:
+    /***/305:
     /***/function _(module, exports, __webpack_require__) {
 
         "use strict";
@@ -202,7 +202,7 @@ module.exports = require("electron");
         });
         exports.default = createWindow;
 
-        var _electron = __webpack_require__(53);
+        var _electron = __webpack_require__(56);
 
         var win = void 0;
 
@@ -217,10 +217,10 @@ module.exports = require("electron");
         /***/
     },
 
-    /***/53:
+    /***/56:
     /***/function _(module, exports) {
 
-        module.exports = __webpack_require__(53);
+        module.exports = __webpack_require__(56);
 
         /***/
     }

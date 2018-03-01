@@ -5,7 +5,7 @@ import { ADD_TAG, SELECT_TAG } from "../actions/Actions";
 
 const initialState = {
     selected_tag: {
-        tagID: -1,
+        tagID: 1,
         title: "-",
         abstract: "-",
         detail: "-",
@@ -19,22 +19,14 @@ const initialState = {
 export default function genpass(state = initialState, action) {
     switch(action.type) {
         case ADD_TAG:
+            var t = {
+                tagID: action.tagID,
+                title: "-", abstract: "-", detail: "-", seed: "-", updateAt: action.updateAt
+            }
             var obj = Object.assign({}, state, {
                 tag_count: state.tag_count + 1,
-                tags: [
-                    ...state.tags.slice(0, action.tagID),
-                    Object.assign({}, state.tags[action.tagID], {
-                        tagID: action.tagID,
-                        title: "",
-                        abstract: "",
-                        detail: "",
-                        seed: "",
-                        updateAt: action.updateAt
-                    }),
-                    ...state.tags.slice(action.tagID + 1)
-                ]
+                tags: Array.from(new Set([...state.tags, t]))
             });
-            console.log(obj);
             return obj;
 
         case SELECT_TAG:
