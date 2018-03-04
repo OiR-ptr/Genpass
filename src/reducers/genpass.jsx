@@ -1,7 +1,7 @@
 import React from "react";
 import Moment from "moment";
 
-import { ADD_TAG, SELECT_TAG } from "../actions/Actions";
+import { ADD_TAG, SELECT_TAG, SAVE_TAG } from "../actions/Actions";
 
 const initialState = {
     selected_tag: {
@@ -16,7 +16,7 @@ const initialState = {
     tags: [],
 };
 
-export default function genpass(state = initialState, action) {
+export default function genpassReducer(state = initialState, action) {
     switch(action.type) {
         case ADD_TAG:
             var t = {
@@ -35,6 +35,10 @@ export default function genpass(state = initialState, action) {
                     return value.tagID == action.tagID;
                 })[0])
             });
+
+        case SAVE_TAG:
+            console.log(action.obj)
+            return Object.assign({}, state);
 
         default:
             return state;

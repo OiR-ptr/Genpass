@@ -1,13 +1,19 @@
 import React from "react";
 import {render} from "react-dom";
-import {createStore} from "redux";
+import {createStore, combineReducers} from "redux";
 import {Provider} from "react-redux";
+import { reducer as formReducer } from "redux-form";
 import MuiProvider from "material-ui/styles/MuiThemeProvider";
 
-import reducer from "../reducers/genpass";
+import genpassReducer from "../reducers/genpass";
 import GenPass from "../components/GenPass";
 
-let store = createStore(reducer);
+const rootReducer = combineReducers({
+    genpass: genpassReducer, 
+    form: formReducer
+})
+
+let store = createStore(rootReducer);
 let rootElement = document.getElementById("root");
 
 render(

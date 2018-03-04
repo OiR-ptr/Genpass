@@ -21,11 +21,10 @@ export function selectTagEvent(tagID) {
     }
 }
 
-export function saveTagEvent(tagID, obj) {
-    console.log("Occurred save tag event." + tagID + ", obj : " + obj);
+export function saveTagEvent(obj) {
+    console.log("Occurred save tag event." + obj);
     return {
         type: SAVE_TAG,
-        tagID: tagID,
         obj: obj,
     }
 }

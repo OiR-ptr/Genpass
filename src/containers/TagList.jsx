@@ -6,8 +6,8 @@ import {connect} from "react-redux";
 
 function mapStateToProps(state) {
     return {
-        tagID: state.tag_count,
-        tags: state.tags,
+        tagID: state.genpass.tag_count,
+        tags: state.genpass.tags,
     };
 }
 
