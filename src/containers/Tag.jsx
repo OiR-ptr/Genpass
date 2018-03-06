@@ -5,7 +5,6 @@ import Tag from "../components/Tag";
 import {selectTagEvent} from "../actions/Actions";
 
 function mapStateToProps(state) {
-    console.log(state);
     return {
     };
 }

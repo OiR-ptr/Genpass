@@ -10938,7 +10938,7 @@ function addTagEvent(tagID) {
     return {
         type: ADD_TAG,
         tagID: tagID,
-        updateAt: __WEBPACK_IMPORTED_MODULE_0_moment___default()().format('LL')
+        updateAt: __WEBPACK_IMPORTED_MODULE_0_moment___default()().format('LLL')
     };
 }
 
@@ -61860,7 +61860,7 @@ const initialState = {
         abstract: "-",
         detail: "-",
         seed: "-",
-        updateAt: __WEBPACK_IMPORTED_MODULE_1_moment___default()().format('LL')
+        updateAt: __WEBPACK_IMPORTED_MODULE_1_moment___default()().format('LLL')
     },
     tag_count: 0,
     tags: []
@@ -61887,7 +61887,6 @@ function genpassReducer(state = initialState, action) {
             });
 
         case __WEBPACK_IMPORTED_MODULE_2__actions_Actions__["b" /* SAVE_TAG */]:
-            console.log(action.obj);
             return Object.assign({}, state);
 
         default:
@@ -62319,7 +62318,6 @@ class TagList extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component {
 
 
 function mapStateToProps(state) {
-    console.log(state);
     return {};
 }
 
@@ -66474,6 +66472,17 @@ const renderTextField = (_ref) => {
     }, input, custom));
 };
 
+function submit(values) {
+    this.props.saveTag({
+        tagID: values.tagID,
+        title: values.title,
+        abstract: values.abstract,
+        detail: values.detail,
+        seed: values.seed,
+        updateAt: __WEBPACK_IMPORTED_MODULE_3_moment___default()().format('LLL')
+    });
+}
+
 class MainContent extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component {
     constructor(props) {
         super(props);
@@ -66481,44 +66490,52 @@ class MainContent extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Componen
 
     render() {
         return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-            "div",
-            null,
+            "form",
+            { onSubmit: this.props.handleSubmit(values => {
+                    console.log(values);
+                    this.props.saveTag({});
+                }) },
             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                "form",
+                "center",
                 null,
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    "center",
-                    null,
-                    this.props.tag.tagID
-                ),
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_redux_form__["a" /* Field */], {
-                    name: "title",
-                    label: "Title",
-                    component: renderTextField
-                }),
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("br", null),
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    "center",
-                    null,
-                    this.props.tag.updateAt
-                ),
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("br", null)
+                this.props.tag.tagID
             ),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_redux_form__["a" /* Field */], {
+                name: "title",
+                label: "Title",
+                component: renderTextField
+            }),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("br", null),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_redux_form__["a" /* Field */], {
+                name: "abstract",
+                label: "Abstract",
+                component: renderTextField
+            }),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("br", null),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_redux_form__["a" /* Field */], {
+                name: "detail",
+                label: "Detail",
+                component: renderTextField
+            }),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("br", null),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_redux_form__["a" /* Field */], {
+                name: "seed",
+                label: "Seed",
+                component: renderTextField
+            }),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("br", null),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                "center",
+                null,
+                this.props.tag.updateAt
+            ),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("br", null),
             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5_material_ui_FlatButton___default.a, {
+                type: "submit",
                 label: "Label Before",
                 labelPosition: "before",
                 icon: __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_6_material_ui_svg_icons_action_done___default.a, null),
-                style: { float: "right" },
-                onClick: e => {
-                    this.props.saveTag({
-                        tagID: this.props.tag.tagID,
-                        title: this.state.title,
-                        abstract: this.state.abstract,
-                        detail: this.state.detail,
-                        seed: this.state.seed,
-                        updateAt: __WEBPACK_IMPORTED_MODULE_3_moment___default()().format('LL')
-                    });
-                }
+                style: { float: "right" }
             })
         );
     }

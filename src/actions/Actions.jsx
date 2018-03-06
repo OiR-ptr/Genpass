@@ -9,7 +9,7 @@ export function addTagEvent(tagID) {
     return {
         type: ADD_TAG,
         tagID: tagID,
-        updateAt: moment().format('LL')
+        updateAt: moment().format('LLL')
     };
 }
 

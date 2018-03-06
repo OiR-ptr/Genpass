@@ -10,7 +10,7 @@ const initialState = {
         abstract: "-",
         detail: "-",
         seed: "-",
-        updateAt: Moment().format('LL'),
+        updateAt: Moment().format('LLL'),
     },
     tag_count: 0,
     tags: [],
@@ -37,7 +37,6 @@ export default function genpassReducer(state = initialState, action) {
             });
 
         case SAVE_TAG:
-            console.log(action.obj)
             return Object.assign({}, state);
 
         default:
