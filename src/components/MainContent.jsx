@@ -1,4 +1,6 @@
 import React from "react";
+import { connect } from "react-redux";
+import { Field, reduxForm } from "redux-form";
 
 import Moment from "moment";
 
@@ -6,30 +8,37 @@ import TextField from "material-ui/TextField";
 import FlatButton from "material-ui/FlatButton";
 import Done from "material-ui/svg-icons/action/done";
 
-export default class MainContent extends React.Component {
+const renderTextField = ({
+    input,
+    label,
+    meta: { touched, error },
+    ...custom
+  }) =>
+    <TextField
+      floatingLabelText={label}
+      errorText={touched && error}
+      {...input}
+      {...custom}
+    />
+
+class MainContent extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {
-            title: props.tag.title,
-            abstract: props.tag.abstract,
-            detail: props.tag.detail,
-            seed: props.tag.seed,
-        }
     }
 
     render() {
-        let data = { title: this.props.tag.title, abstract: this.props.tag.abstract, detail: this.props.tag.detail, seed: this.props.tag.seed}
-
         return (
             <div>
-                <center>{this.props.tag.tagID}</center>
-                <TextField floatingLabelText="Title" value={this.title} onChange={(e) => { this.title = e.target.value }} /><br />
-                <TextField floatingLabelText="Abstract" value={this.state.abstract} onChange={(e) => { this.setState({ abstract: e.target.value })}} /><br />
-                <TextField floatingLabelText="Detail" value={this.state.detail} onChange={(e) => { this.setState({ detail: e.target.value })}}/><br />
-                <TextField floatingLabelText="Seed" value={this.state.seed} onChange={(e) => { this.setState({ seed: e.target.value })}}/><br />
-                <center>{this.props.tag.updateAt}</center>
-                
-                <br />
+                <form>
+                    <center>{this.props.tag.tagID}</center>
+                    <Field 
+                        name="title"
+                        label="Title"
+                        component={renderTextField}
+                    /><br />
+                    <center>{this.props.tag.updateAt}</center><br />
+                </form>
+
                 <FlatButton 
                     label="Label Before"
                     labelPosition="before"
@@ -50,3 +59,12 @@ export default class MainContent extends React.Component {
         );
     }
 }
+
+let contactForm = reduxForm({
+    form: 'contact',
+    enableReinitialize: 'true'
+})(MainContent);
+
+export default connect(state => ({
+    initialValues: state.genpass.selected_tag
+}))(contactForm);

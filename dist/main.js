@@ -75,9 +75,6 @@ module.exports = require("electron");
 /***/ 825:
 /***/ (function(module, exports, __webpack_require__) {
 
-"use strict";
-
-
 /******/(function (modules) {
     // webpackBootstrap
     /******/ // The module cache
@@ -152,64 +149,56 @@ module.exports = require("electron");
     /******/__webpack_require__.p = "";
     /******/
     /******/ // Load entry module and return exports
-    /******/return __webpack_require__(__webpack_require__.s = 384);
+    /******/return __webpack_require__(__webpack_require__.s = 385);
     /******/
 })(
 /************************************************************************/
 /******/{
 
-    /***/384:
-    /***/function _(module, exports, __webpack_require__) {
+    /***/385:
+    /***/function (module, __webpack_exports__, __webpack_require__) {
 
         "use strict";
 
-        var _electron = __webpack_require__(70);
+        Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+        /* harmony import */var __WEBPACK_IMPORTED_MODULE_0_electron__ = __webpack_require__(70);
+        /* harmony import */var __WEBPACK_IMPORTED_MODULE_0_electron___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_electron__);
+        /* harmony import */var __WEBPACK_IMPORTED_MODULE_1__createWindow__ = __webpack_require__(386);
 
-        var _createWindow = __webpack_require__(385);
-
-        var _createWindow2 = _interopRequireDefault(_createWindow);
-
-        function _interopRequireDefault(obj) {
-            return obj && obj.__esModule ? obj : { default: obj };
-        }
-
-        _electron.app.on("ready", function () {
-            (0, _createWindow2.default)();
+        __WEBPACK_IMPORTED_MODULE_0_electron__["app"].on("ready", () => {
+            Object(__WEBPACK_IMPORTED_MODULE_1__createWindow__["a" /* default */])();
         });
 
-        _electron.app.on("window-all-closed", function () {
+        __WEBPACK_IMPORTED_MODULE_0_electron__["app"].on("window-all-closed", () => {
             if (process.platform !== "darwin") {
-                _electron.app.quit();
+                __WEBPACK_IMPORTED_MODULE_0_electron__["app"].quit();
             }
         });
 
-        _electron.app.on("activate", function (_e, hasVisibleWindows) {
+        __WEBPACK_IMPORTED_MODULE_0_electron__["app"].on("activate", (_e, hasVisibleWindows) => {
             if (!hasVisibleWindows) {
-                (0, _createWindow2.default)();
+                Object(__WEBPACK_IMPORTED_MODULE_1__createWindow__["a" /* default */])();
             }
         });
 
         /***/
     },
 
-    /***/385:
-    /***/function _(module, exports, __webpack_require__) {
+    /***/386:
+    /***/function (module, __webpack_exports__, __webpack_require__) {
 
         "use strict";
+        /* harmony export (immutable) */
+        __webpack_exports__["a"] = createWindow;
+        /* harmony import */var __WEBPACK_IMPORTED_MODULE_0_electron__ = __webpack_require__(70);
+        /* harmony import */var __WEBPACK_IMPORTED_MODULE_0_electron___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_electron__);
 
-        Object.defineProperty(exports, "__esModule", {
-            value: true
-        });
-        exports.default = createWindow;
-
-        var _electron = __webpack_require__(70);
-
-        var win = void 0;
+        let win;
 
         function createWindow() {
-            win = new _electron.BrowserWindow();
-            win.loadURL("file://" + __dirname + "/../../index.html");
-            win.on("close", function () {
+            win = new __WEBPACK_IMPORTED_MODULE_0_electron__["BrowserWindow"]();
+            win.loadURL(`file://${__dirname}/../../index.html`);
+            win.on("close", () => {
                 win = null;
             });
         }
@@ -218,7 +207,7 @@ module.exports = require("electron");
     },
 
     /***/70:
-    /***/function _(module, exports) {
+    /***/function (module, exports) {
 
         module.exports = __webpack_require__(70);
 
