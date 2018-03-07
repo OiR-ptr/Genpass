@@ -37,7 +37,16 @@ export default function genpassReducer(state = initialState, action) {
             });
 
         case SAVE_TAG:
-            return Object.assign({}, state);
+            let newtags = state.tags.slice();
+            const idx = state.tags.findIndex( function(value) {
+                return value.tagID == action.tag.tagID;
+            });
+            if(idx != -1) {
+                newtags[idx] = action.tag;
+            }
+            return Object.assign({}, state, {
+                tags: newtags
+            });
 
         default:
             return state;

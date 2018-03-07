@@ -10950,11 +10950,11 @@ function selectTagEvent(tagID) {
     };
 }
 
-function saveTagEvent(obj) {
-    console.log("Occurred save tag event." + obj);
+function saveTagEvent(tag) {
+    console.log("Occurred save tag event." + tag.tagID);
     return {
         type: SAVE_TAG,
-        obj: obj
+        tag: tag
     };
 }
 
@@ -61887,7 +61887,16 @@ function genpassReducer(state = initialState, action) {
             });
 
         case __WEBPACK_IMPORTED_MODULE_2__actions_Actions__["b" /* SAVE_TAG */]:
-            return Object.assign({}, state);
+            let newtags = state.tags.slice();
+            const idx = state.tags.findIndex(function (value) {
+                return value.tagID == action.tag.tagID;
+            });
+            if (idx != -1) {
+                newtags[idx] = action.tag;
+            }
+            return Object.assign({}, state, {
+                tags: newtags
+            });
 
         default:
             return state;
@@ -66472,17 +66481,6 @@ const renderTextField = (_ref) => {
     }, input, custom));
 };
 
-function submit(values) {
-    this.props.saveTag({
-        tagID: values.tagID,
-        title: values.title,
-        abstract: values.abstract,
-        detail: values.detail,
-        seed: values.seed,
-        updateAt: __WEBPACK_IMPORTED_MODULE_3_moment___default()().format('LLL')
-    });
-}
-
 class MainContent extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component {
     constructor(props) {
         super(props);
@@ -66493,7 +66491,14 @@ class MainContent extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Componen
             "form",
             { onSubmit: this.props.handleSubmit(values => {
                     console.log(values);
-                    this.props.saveTag({});
+                    this.props.saveTag({
+                        tagID: values.tagID,
+                        title: values.title,
+                        abstract: values.abstract,
+                        detail: values.detail,
+                        seed: values.seed,
+                        updateAt: __WEBPACK_IMPORTED_MODULE_3_moment___default()().format('LLL')
+                    });
                 }) },
             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                 "center",

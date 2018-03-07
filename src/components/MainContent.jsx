@@ -21,17 +21,6 @@ const renderTextField = ({
       {...custom}
     />
 
-function submit(values) {
-    this.props.saveTag({
-        tagID: values.tagID,
-        title: values.title,
-        abstract: values.abstract,
-        detail: values.detail,
-        seed: values.seed,
-        updateAt: Moment().format('LLL'),
-    });
-}
-
 class MainContent extends React.Component {
     constructor(props) {
         super(props);
@@ -42,7 +31,12 @@ class MainContent extends React.Component {
             <form onSubmit={this.props.handleSubmit( values => {
                 console.log(values);
                 this.props.saveTag({
-                    
+                    tagID: values.tagID,
+                    title: values.title,
+                    abstract: values.abstract,
+                    detail: values.detail,
+                    seed: values.seed,
+                    updateAt: Moment().format('LLL'),
                 });
             })}>
                 <center>{this.props.tag.tagID}</center>
