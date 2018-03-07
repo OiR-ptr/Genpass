@@ -6,10 +6,10 @@ import { ADD_TAG, SELECT_TAG, SAVE_TAG } from "../actions/Actions";
 const initialState = {
     selected_tag: {
         tagID: 1,
-        title: "-",
-        abstract: "-",
-        detail: "-",
-        seed: "-",
+        title: "example",
+        abstract: "",
+        detail: "",
+        seed: "default seed",
         updateAt: Moment().format('LLL'),
     },
     tag_count: 0,
@@ -21,7 +21,7 @@ export default function genpassReducer(state = initialState, action) {
         case ADD_TAG:
             var t = {
                 tagID: action.tagID,
-                title: "-", abstract: "-", detail: "-", seed: "-", updateAt: action.updateAt
+                title: "example", abstract: "", detail: "", seed: "default seed", updateAt: action.updateAt
             }
             var obj = Object.assign({}, state, {
                 tag_count: state.tag_count + 1,

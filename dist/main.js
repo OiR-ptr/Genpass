@@ -60,7 +60,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 825);
+/******/ 	return __webpack_require__(__webpack_require__.s = 827);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -72,7 +72,7 @@ module.exports = require("electron");
 
 /***/ }),
 
-/***/ 825:
+/***/ 827:
 /***/ (function(module, exports, __webpack_require__) {
 
 /******/(function (modules) {
@@ -149,13 +149,13 @@ module.exports = require("electron");
     /******/__webpack_require__.p = "";
     /******/
     /******/ // Load entry module and return exports
-    /******/return __webpack_require__(__webpack_require__.s = 385);
+    /******/return __webpack_require__(__webpack_require__.s = 386);
     /******/
 })(
 /************************************************************************/
 /******/{
 
-    /***/385:
+    /***/386:
     /***/function (module, __webpack_exports__, __webpack_require__) {
 
         "use strict";
@@ -163,7 +163,7 @@ module.exports = require("electron");
         Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         /* harmony import */var __WEBPACK_IMPORTED_MODULE_0_electron__ = __webpack_require__(70);
         /* harmony import */var __WEBPACK_IMPORTED_MODULE_0_electron___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_electron__);
-        /* harmony import */var __WEBPACK_IMPORTED_MODULE_1__createWindow__ = __webpack_require__(386);
+        /* harmony import */var __WEBPACK_IMPORTED_MODULE_1__createWindow__ = __webpack_require__(387);
 
         __WEBPACK_IMPORTED_MODULE_0_electron__["app"].on("ready", () => {
             Object(__WEBPACK_IMPORTED_MODULE_1__createWindow__["a" /* default */])();
@@ -184,7 +184,7 @@ module.exports = require("electron");
         /***/
     },
 
-    /***/386:
+    /***/387:
     /***/function (module, __webpack_exports__, __webpack_require__) {
 
         "use strict";

@@ -29,7 +29,6 @@ class MainContent extends React.Component {
     render() {
         return (
             <form onSubmit={this.props.handleSubmit( values => {
-                console.log(values);
                 this.props.saveTag({
                     tagID: values.tagID,
                     title: values.title,
@@ -53,6 +52,8 @@ class MainContent extends React.Component {
                 <Field 
                     name="detail"
                     label="Detail"
+                    rows={2}
+                    multiLine={true}
                     component={renderTextField}
                 /><br />
                 <Field 
@@ -64,7 +65,7 @@ class MainContent extends React.Component {
 
                 <FlatButton 
                     type="submit"
-                    label="Label Before"
+                    label="Save"
                     labelPosition="before"
                     icon={ <Done /> }
                     style={{ float: "right" }}

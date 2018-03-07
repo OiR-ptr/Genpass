@@ -35,7 +35,7 @@ export default class TagList extends React.Component {
             <GridList cellHeight = {"auto"} cols = {2} style = {{overflowY: "auto"}}>
                 <GridTile
                     key = {1}
-                    title = "menu"
+                    title = "REGISTER"
                     titleStyle={styles.titleStyle}
                     actionIcon = { <IconButton onClick = {(e) => { this.props.addTag(this.props.tagID + 1) }}><AddCircle /></IconButton> }
                     cols = {2}
