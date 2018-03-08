@@ -5,11 +5,12 @@ import {Provider} from "react-redux";
 import { reducer as formReducer } from "redux-form";
 import MuiProvider from "material-ui/styles/MuiThemeProvider";
 
-import genpassReducer from "../reducers/genpass";
+import {tagReducer, passwordReducer} from "../reducers/genpass";
 import GenPass from "../components/GenPass";
 
 const rootReducer = combineReducers({
-    genpass: genpassReducer, 
+    tag: tagReducer, 
+    password: passwordReducer,
     form: formReducer
 })
 

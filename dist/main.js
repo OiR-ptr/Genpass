@@ -60,19 +60,19 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 835);
+/******/ 	return __webpack_require__(__webpack_require__.s = 837);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ 72:
+/***/ 73:
 /***/ (function(module, exports) {
 
 module.exports = require("electron");
 
 /***/ }),
 
-/***/ 835:
+/***/ 837:
 /***/ (function(module, exports, __webpack_require__) {
 
 /******/(function (modules) {
@@ -209,7 +209,7 @@ module.exports = require("electron");
     /***/72:
     /***/function (module, exports) {
 
-        module.exports = __webpack_require__(72);
+        module.exports = __webpack_require__(73);
 
         /***/
     }

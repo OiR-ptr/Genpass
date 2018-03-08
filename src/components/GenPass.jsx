@@ -3,6 +3,7 @@ import React from "react";
 import Paper from "material-ui/Paper";
 import TagList from "../containers/TagList";
 import MainContent from "../containers/MainContent";
+import PasswordDialog from "../containers/PasswordDialog";
 
 export default class GenPass extends React.Component {
     render() {
@@ -16,6 +17,7 @@ export default class GenPass extends React.Component {
                         <MainContent />
                     </div>
                 </Paper>
+                <PasswordDialog />
             </Paper>
         );
     }

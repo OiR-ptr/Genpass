@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { Field, reduxForm } from "redux-form";
+import { Field } from "redux-form";
 
 import Moment from "moment";
 
@@ -24,15 +24,7 @@ const renderTextField = ({
       {...custom}
     />
 
-class MainContent extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            open: false,
-            password: "undefined value",
-        };
-    }
-
+export default class MainContent extends React.Component {
     render() {
         return (
             <form>
@@ -89,28 +81,11 @@ class MainContent extends React.Component {
                     style={{ float: "right" }}
                     onClick={this.props.handleSubmit(
                         values => {
-                            this.setState({
-                                open: true,
-                            });
+                            this.props.generatePassword(values.seed);
                         }
                     )}
                 />
-
-                <Dialog 
-                    title="Conguraturations! Generated Password"
-                    actions={ <FlatButton label="end" onClick={ () => { this.setState({ open: false }) } } /> }
-                    modal={true}
-                    open={this.state.open} >すぐにけせすぐにけせすぐにけせすぐにけせすぐにけせすぐにけせ</Dialog>
             </form>
         );
     }
 }
-
-let contactForm = reduxForm({
-    form: 'contact',
-    enableReinitialize: 'true'
-})(MainContent);
-
-export default connect(state => ({
-    initialValues: state.genpass.selected_tag
-}))(contactForm);

@@ -1,7 +1,7 @@
 import React from "react";
 import Moment from "moment";
 
-import { ADD_TAG, SELECT_TAG, SAVE_TAG } from "../actions/Actions";
+import { ADD_TAG, SELECT_TAG, SAVE_TAG, GENERATE_PASS, GENERATE_PASS_DONE } from "../actions/Actions";
 
 const initialState = {
     selected_tag: {
@@ -16,7 +16,7 @@ const initialState = {
     tags: [],
 };
 
-export default function genpassReducer(state = initialState, action) {
+export function tagReducer(state = initialState, action) {
     switch(action.type) {
         case ADD_TAG:
             var t = {
@@ -46,6 +46,30 @@ export default function genpassReducer(state = initialState, action) {
             }
             return Object.assign({}, state, {
                 tags: newtags
+            });
+
+        default:
+            return state;
+    }
+}
+
+const passwordInitialState = {
+    open: false,
+    password: "",
+};
+
+export function passwordReducer(state = passwordInitialState, action) {
+    switch(action.type) {
+        case GENERATE_PASS:
+            return Object.assign({}, state, {
+                open: true,
+                password: "toria-ez",
+            });
+
+        case GENERATE_PASS_DONE:
+            return Object.assign({}, state, {
+                open: false,
+                password: "",
             });
 
         default:
