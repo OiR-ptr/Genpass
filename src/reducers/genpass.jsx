@@ -44,6 +44,9 @@ export function tagReducer(state = initialState, action) {
             if(idx != -1) {
                 newtags[idx] = action.tag;
             }
+            else {
+                newtags.push(action.tag);
+            }
             return Object.assign({}, state, {
                 tags: newtags
             });
@@ -54,7 +57,6 @@ export function tagReducer(state = initialState, action) {
 }
 
 const passwordInitialState = {
-    open: false,
     password: "",
 };
 
@@ -62,13 +64,11 @@ export function passwordReducer(state = passwordInitialState, action) {
     switch(action.type) {
         case GENERATE_PASS:
             return Object.assign({}, state, {
-                open: true,
                 password: "toria-ez",
             });
 
         case GENERATE_PASS_DONE:
             return Object.assign({}, state, {
-                open: false,
                 password: "",
             });
 

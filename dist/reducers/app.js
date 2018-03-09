@@ -62415,6 +62415,8 @@ function tagReducer(state = initialState, action) {
             });
             if (idx != -1) {
                 newtags[idx] = action.tag;
+            } else {
+                newtags.push(action.tag);
             }
             return Object.assign({}, state, {
                 tags: newtags
@@ -62426,7 +62428,6 @@ function tagReducer(state = initialState, action) {
 }
 
 const passwordInitialState = {
-    open: false,
     password: ""
 };
 
@@ -62434,13 +62435,11 @@ function passwordReducer(state = passwordInitialState, action) {
     switch (action.type) {
         case __WEBPACK_IMPORTED_MODULE_2__actions_Actions__["b" /* GENERATE_PASS */]:
             return Object.assign({}, state, {
-                open: true,
                 password: "toria-ez"
             });
 
         case __WEBPACK_IMPORTED_MODULE_2__actions_Actions__["c" /* GENERATE_PASS_DONE */]:
             return Object.assign({}, state, {
-                open: false,
                 password: ""
             });
 
@@ -71272,7 +71271,7 @@ exports.default = CommunicationVpnKey;
 
 function mapStateToProps(state) {
     return {
-        open: state.password.open,
+        open: !(state.password.password === ""),
         password: state.password.password
     };
 }

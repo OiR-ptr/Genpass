@@ -6,7 +6,7 @@ import {clearPasswordEvent} from "../actions/Actions";
 
 function mapStateToProps(state) {
     return {
-        open: state.password.open,
+        open: !(state.password.password === ""),
         password: state.password.password,
     };
 }
