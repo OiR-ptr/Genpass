@@ -49,7 +49,6 @@ export default class MainContent extends React.Component {
                 <Field 
                     name="seed"
                     label="Seed"
-                    type="password"
                     component={renderTextField}
                 /><br />
                 <center>{this.props.tag.updateAt}</center><br />

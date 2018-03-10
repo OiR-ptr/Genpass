@@ -1,7 +1,9 @@
 import React from "react";
 import Moment from "moment";
+import {Enigma, Rotor, Reflector, Plugboard, EntryWheel} from "enigma";
 
 import { ADD_TAG, SELECT_TAG, SAVE_TAG, GENERATE_PASS, GENERATE_PASS_DONE } from "../actions/Actions";
+import { start } from "repl";
 
 const initialState = {
     selected_tag: {
@@ -60,11 +62,21 @@ const passwordInitialState = {
     password: "",
 };
 
+const rotor_one = new Rotor('EKMFLGDQVZNTOWYHXUSPAIBRCJ', 'Q');
+const rotor_two = new Rotor('ESOVPZJAYQUIRHXLNFTGKDCMWB', 'J');
+const rotor_three = new Rotor('BDFHJLCPRTXVZNYEIWGAKMUSQO', 'V');
+const reflector = new Reflector('YRUHQSLDPXNGOKMIEBFZCWVJAT');
+const plugboard = new Plugboard( 'AD CN ET FL GI JV KZ PU QY WX' );
+const wheel = new EntryWheel('ABCDEFGHIJKLMNOPQRSTUVWXYZ');
+const enigma = new Enigma([rotor_one, rotor_two, rotor_three], reflector, plugboard, wheel);
+const startPosition = 'QWE';
+
 export function passwordReducer(state = passwordInitialState, action) {
     switch(action.type) {
         case GENERATE_PASS:
+            enigma.setPositions( startPosition );
             return Object.assign({}, state, {
-                password: "toria-ez",
+                password: enigma.string( action.seed )
             });
 
         case GENERATE_PASS_DONE:
