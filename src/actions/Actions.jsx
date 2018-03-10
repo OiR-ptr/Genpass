@@ -7,7 +7,6 @@ export const GENERATE_PASS = 'GENERATE_PASS';
 export const GENERATE_PASS_DONE = 'GENERATE_PASS_DONE';
 
 export function addTagEvent(tagID) {
-    console.log("Occurred add tag event." + tagID);
     return {
         type: ADD_TAG,
         tagID: tagID,
@@ -16,7 +15,6 @@ export function addTagEvent(tagID) {
 }
 
 export function selectTagEvent(tagID) {
-    console.log("Occurred select tag event." + tagID);
     return {
         type: SELECT_TAG,
         tagID: tagID,
@@ -24,7 +22,6 @@ export function selectTagEvent(tagID) {
 }
 
 export function saveTagEvent(tag) {
-    console.log("Occurred save tag event." + tag.tagID);
     return {
         type: SAVE_TAG,
         tag: tag,
