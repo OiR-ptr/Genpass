@@ -28,3 +28,7 @@ build/Release
 node_modules
 
 dist/
+
+enigman-win32-x64/
+
+enigman-win32-ia32/
