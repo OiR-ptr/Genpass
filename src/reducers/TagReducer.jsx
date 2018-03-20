@@ -1,8 +1,7 @@
 import React from "react";
 import Moment from "moment";
-import {Enigma, Rotor, Reflector, Plugboard, EntryWheel} from "enigma";
 
-import { ADD_TAG, SELECT_TAG, SAVE_TAG, GENERATE_PASS, GENERATE_PASS_DONE } from "../actions/Actions";
+import { ADD_TAG, SELECT_TAG, SAVE_TAG } from "../actions/Actions";
 
 const initialState = {
     selected_tag: {
@@ -17,7 +16,7 @@ const initialState = {
     tags: [],
 };
 
-export function tagReducer(state = initialState, action) {
+export default function tagReducer(state = initialState, action) {
     switch(action.type) {
         case ADD_TAG:
             var t = {
@@ -50,37 +49,6 @@ export function tagReducer(state = initialState, action) {
             }
             return Object.assign({}, state, {
                 tags: newtags
-            });
-
-        default:
-            return state;
-    }
-}
-
-const passwordInitialState = {
-    password: "",
-};
-
-const rotor_one = new Rotor('EKMFLGDQVZNTOWYHXUSPAIBRCJ', 'Q');
-const rotor_two = new Rotor('ESOVPZJAYQUIRHXLNFTGKDCMWB', 'J');
-const rotor_three = new Rotor('BDFHJLCPRTXVZNYEIWGAKMUSQO', 'V');
-const reflector = new Reflector('YRUHQSLDPXNGOKMIEBFZCWVJAT');
-const plugboard = new Plugboard( 'AD CN ET FL GI JV KZ PU QY WX' );
-const wheel = new EntryWheel('ABCDEFGHIJKLMNOPQRSTUVWXYZ');
-const enigma = new Enigma([rotor_one, rotor_two, rotor_three], reflector, plugboard, wheel);
-const startPosition = 'QWE';
-
-export function passwordReducer(state = passwordInitialState, action) {
-    switch(action.type) {
-        case GENERATE_PASS:
-            enigma.setPositions( startPosition );
-            return Object.assign({}, state, {
-                password: enigma.string( action.seed )
-            });
-
-        case GENERATE_PASS_DONE:
-            return Object.assign({}, state, {
-                password: "",
             });
 
         default:

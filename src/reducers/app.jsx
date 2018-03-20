@@ -1,26 +1,36 @@
 import React from "react";
 import {render} from "react-dom";
-import {createStore, combineReducers} from "redux";
+import {createStore, combineReducers, applyMiddleware} from "redux";
 import {Provider} from "react-redux";
-import { reducer as formReducer } from "redux-form";
 import MuiProvider from "material-ui/styles/MuiThemeProvider";
+import createHistory from "history/createBrowserHistory";
+import {reducer as formReducer} from "redux-form";
+import {routerReducer, routerMiddleware, ConnectedRouter, push} from "react-router-redux";
+import tagReducer from "../reducers/TagReducer";
+import passwordReducer from "../reducers/PasswordReducer";
+import authReducer from "../reducers/AuthReducer";
+import Routing from "../components/Routing";
 
-import {tagReducer, passwordReducer} from "../reducers/genpass";
-import GenPass from "../components/GenPass";
+const history = createHistory();
+const middleware = routerMiddleware(history);
 
 const rootReducer = combineReducers({
+    auth: authReducer,
     tag: tagReducer, 
     password: passwordReducer,
-    form: formReducer
+    form: formReducer,
+    router: routerReducer
 })
 
-let store = createStore(rootReducer);
+const store = createStore(rootReducer, applyMiddleware(middleware));
 let rootElement = document.getElementById("root");
 
 render(
     <Provider store={store}>
         <MuiProvider>
-            <GenPass />
+            <ConnectedRouter history={history}>
+                <Routing />
+            </ConnectedRouter>
         </MuiProvider>
     </Provider>, 
     rootElement
