@@ -7,10 +7,14 @@ const initialState = {
 export default function authReducer(state = initialState, action) {
     switch(action.type) {
         case AUTHENTIFICATION_SUCCEEDED:
-            return state;
+            return Object.assign({}, state, {
+                isAuth: true,
+            });
 
         case AUTHENTIFICATION_FAILED:
-            return state;
+            return Object.assign({}, state, {
+                isAuth: false,
+            });
 
         default:
             return state;
