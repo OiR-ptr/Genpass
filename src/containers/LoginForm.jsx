@@ -3,9 +3,11 @@ import {push} from "react-router-redux";
 
 import LoginForm from "../components/LoginForm";
 import {AuthSucceededEvent, AuthFailedEvent} from "../actions/AuthActions";
+import {ChangeThemeEvent} from "../actions/AppConfigActions";
 
 function mapStateToProps(state) {
     return {
+        theme: state.app.muiTheme,
     };
 }
 
@@ -19,6 +21,9 @@ function mapDispatchToProps(dispatch) {
             dispatch(AuthFailedEvent());
             dispatch(push('/login'));
         },
+        changeTheme(theme) {
+            dispatch(ChangeThemeEvent(theme));
+        }
     };
 }
 
