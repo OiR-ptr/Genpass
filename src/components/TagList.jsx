@@ -3,7 +3,7 @@ import Tag from "../containers/Tag";
 
 import {GridList, GridTile} from "material-ui/GridList";
 import IconButton from "material-ui/IconButton";
-import AddCircle from "material-ui/svg-icons/content/add-circle";
+import PlaylistAdd from "material-ui/svg-icons/av/playlist-add";
 import Subheader from "material-ui/Subheader";
 
 export default class TagList extends React.Component {
@@ -37,7 +37,7 @@ export default class TagList extends React.Component {
                     key = {1}
                     title = "REGISTER"
                     titleStyle={styles.titleStyle}
-                    actionIcon = { <IconButton onClick = {(e) => { this.props.addTag(this.props.tagID + 1) }}><AddCircle /></IconButton> }
+                    actionIcon = { <IconButton onClick = {(e) => { this.props.addTag(this.props.tagID + 1) }}><PlaylistAdd /></IconButton> }
                     cols = {2}
                     rows = {1}
                     >

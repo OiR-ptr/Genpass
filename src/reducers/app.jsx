@@ -13,7 +13,9 @@ import {appReducer} from "../reducers/AppReducer";
 import Routing from "../components/Routing";
 import GuiThemeContainer from "../containers/GuiThemeContainer";
 
-const history = createHistory();
+const history = createHistory({
+    basename: window.location.pathname
+});
 const middleware = routerMiddleware(history);
 
 const rootReducer = combineReducers({
