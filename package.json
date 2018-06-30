@@ -13,6 +13,7 @@
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-1": "^6.24.1",
     "css-loader": "^0.28.9",
+    "devtron": "^1.4.0",
     "electron": "^1.8.2",
     "enigma": "^1.1.2",
     "firebase": "^4.12.0",

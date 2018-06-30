@@ -4,17 +4,21 @@ import {connect} from "react-redux";
 import LoginForm from "../containers/LoginForm";
 import GenPass from "../components/GenPass";
 
-export default class Routing extends React.Component {
+class Routing extends React.Component {
+    shouldComponentUpdate(nextProps) {
+        console.log(nextProps.location);
+        return true;
+    }
+
     render() {
-        const ConnectedSwitch = connect(state => ({
-            location: state.router.location
-        }))(Switch);
         return (
-            <ConnectedSwitch>
+            <Switch>
                 <Route path="/" component={LoginForm} />
                 <Route path="/content" component={GenPass} />
                 <Redirect to={{pathname: '/'}} />
-            </ConnectedSwitch>
+            </Switch>
         );
     }
 }
+
+export default withRouter(connect(state => ({ location: state.router.location }))(Routing));

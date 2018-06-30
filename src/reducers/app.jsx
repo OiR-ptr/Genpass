@@ -2,7 +2,6 @@ import React from "react";
 import {render} from "react-dom";
 import {createStore, combineReducers, applyMiddleware} from "redux";
 import {Provider} from "react-redux";
-import MuiProvider from "material-ui/styles/MuiThemeProvider";
 import createHistory from "history/createBrowserHistory";
 import {reducer as formReducer} from "redux-form";
 import {routerReducer, routerMiddleware, ConnectedRouter, push} from "react-router-redux";
