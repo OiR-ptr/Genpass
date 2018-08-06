@@ -7,15 +7,15 @@ import GenPass from "../components/GenPass";
 class Routing extends React.Component {
     shouldComponentUpdate(nextProps) {
         console.log(nextProps.location);
+        console.log(this.props.location);
         return true;
     }
 
     render() {
         return (
             <Switch>
-                <Route path="/" component={LoginForm} />
                 <Route path="/content" component={GenPass} />
-                <Redirect to={{pathname: '/'}} />
+                <Route path="/" component={LoginForm} />
             </Switch>
         );
     }

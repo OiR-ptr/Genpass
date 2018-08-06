@@ -3,11 +3,11 @@ import {push} from "react-router-redux";
 
 import {firebaseApp} from "../firebase/firebaseinstance";
 import LoginForm from "../components/LoginForm";
-import {AuthSucceededEvent, AuthFailedEvent} from "../actions/AuthActions";
+import {AuthSucceededEvent, AuthFailedEvent, AuthDone} from "../actions/AuthActions";
 
 function mapStateToProps(state) {
     return {
-        isAuth: state.auth.isAuth,
+        isAuth: (state.auth.isAuth || state.auth.closing),
     };
 }
 
@@ -18,6 +18,7 @@ function mapDispatchToProps(dispatch) {
             .then( value => {
                 console.log("then. auth succeess");
                 dispatch(AuthSucceededEvent());
+                dispatch(AuthDone());
             }).catch( error => {
                 console.log("catch. auth failed..." + error);
                 dispatch(AuthFailedEvent());
@@ -28,6 +29,7 @@ function mapDispatchToProps(dispatch) {
             .then( value => {
                 console.log("then. auth success...");
                 dispatch(AuthSucceededEvent());
+                dispatch(AuthDone());
             }).catch( error => {
                 console.log("catch. create user failed..." + error);
                 dispatch(AuthFailedEvent());
@@ -35,7 +37,9 @@ function mapDispatchToProps(dispatch) {
         },
         
         gotoContentPage() {
+            // dispatch(AuthFailedEvent());
             dispatch(push('/content'));
+            dispatch(AuthDone());
         }
     };
 }

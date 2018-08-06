@@ -1,7 +1,9 @@
-import {AUTHENTIFICATION_SUCCEEDED, AUTHENTIFICATION_FAILED} from "../actions/AuthActions";
+import {AUTHENTIFICATION_SUCCEEDED, AUTHENTIFICATION_FAILED, AUTHENTIFICATION_DONE} from "../actions/AuthActions";
 
 const initialState = {
     isAuth: false,
+
+    closing: false,
 };
 
 export default function authReducer(state = initialState, action) {
@@ -16,6 +18,11 @@ export default function authReducer(state = initialState, action) {
             console.log("auth reducer : isAuth fail");
             return Object.assign({}, state, {
                 isAuth: false,
+            });
+
+        case AUTHENTIFICATION_DONE:
+            return Object.assign({}, state, {
+                closing: !(state.closing),
             });
 
         default:
