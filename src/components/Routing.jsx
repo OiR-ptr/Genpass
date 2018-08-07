@@ -7,7 +7,6 @@ import GenPass from "../components/GenPass";
 class Routing extends React.Component {
     shouldComponentUpdate(nextProps) {
         console.log(nextProps.location);
-        console.log(this.props.location);
         return true;
     }
 

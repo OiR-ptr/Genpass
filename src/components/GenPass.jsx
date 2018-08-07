@@ -4,8 +4,14 @@ import Paper from "material-ui/Paper";
 import TagList from "../containers/TagList";
 import MainContent from "../containers/MainContent";
 import PasswordDialog from "../containers/PasswordDialog";
+import {firebaseApp} from "../firebase/firebaseinstance";
+import { connect } from "react-redux";
 
-export default class GenPass extends React.Component {
+class GenPass extends React.Component {
+    componentDidMount() {
+        console.log(firebaseApp.auth().currentUser);
+    }
+
     render() {
         return (
             <Paper>
@@ -22,3 +28,4 @@ export default class GenPass extends React.Component {
         );
     }
 }
+export default connect()(GenPass);

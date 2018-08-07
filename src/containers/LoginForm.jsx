@@ -16,7 +16,7 @@ function mapDispatchToProps(dispatch) {
         signIn(email, password) {
             firebaseApp.auth().signInWithEmailAndPassword(email, password)
             .then( value => {
-                console.log("then. auth succeess");
+                console.log("then. auth succeess. User credential: " + JSON.stringify(value));
                 dispatch(AuthSucceededEvent());
                 dispatch(AuthDone());
             }).catch( error => {
@@ -27,7 +27,7 @@ function mapDispatchToProps(dispatch) {
         signUp(email, password) {
             firebaseApp.auth().createUserWithEmailAndPassword(email, password)
             .then( value => {
-                console.log("then. auth success...");
+                console.log("then. auth success. User credential: " + JSON.stringify(value));
                 dispatch(AuthSucceededEvent());
                 dispatch(AuthDone());
             }).catch( error => {
