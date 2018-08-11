@@ -60,12 +60,19 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 1042);
+/******/ 	return __webpack_require__(__webpack_require__.s = 940);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ 1042:
+/***/ 77:
+/***/ (function(module, exports) {
+
+module.exports = require("electron");
+
+/***/ }),
+
+/***/ 940:
 /***/ (function(module, exports, __webpack_require__) {
 
 /******/(function (modules) {
@@ -142,21 +149,21 @@
     /******/__webpack_require__.p = "";
     /******/
     /******/ // Load entry module and return exports
-    /******/return __webpack_require__(__webpack_require__.s = 493);
+    /******/return __webpack_require__(__webpack_require__.s = 439);
     /******/
 })(
 /************************************************************************/
 /******/{
 
-    /***/493:
+    /***/439:
     /***/function (module, __webpack_exports__, __webpack_require__) {
 
         "use strict";
 
         Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-        /* harmony import */var __WEBPACK_IMPORTED_MODULE_0_electron__ = __webpack_require__(90);
+        /* harmony import */var __WEBPACK_IMPORTED_MODULE_0_electron__ = __webpack_require__(77);
         /* harmony import */var __WEBPACK_IMPORTED_MODULE_0_electron___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_electron__);
-        /* harmony import */var __WEBPACK_IMPORTED_MODULE_1__createWindow__ = __webpack_require__(494);
+        /* harmony import */var __WEBPACK_IMPORTED_MODULE_1__createWindow__ = __webpack_require__(440);
 
         __WEBPACK_IMPORTED_MODULE_0_electron__["app"].on("ready", () => {
             Object(__WEBPACK_IMPORTED_MODULE_1__createWindow__["a" /* default */])();
@@ -177,13 +184,13 @@
         /***/
     },
 
-    /***/494:
+    /***/440:
     /***/function (module, __webpack_exports__, __webpack_require__) {
 
         "use strict";
         /* harmony export (immutable) */
         __webpack_exports__["a"] = createWindow;
-        /* harmony import */var __WEBPACK_IMPORTED_MODULE_0_electron__ = __webpack_require__(90);
+        /* harmony import */var __WEBPACK_IMPORTED_MODULE_0_electron__ = __webpack_require__(77);
         /* harmony import */var __WEBPACK_IMPORTED_MODULE_0_electron___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_electron__);
 
         let win;
@@ -199,23 +206,16 @@
         /***/
     },
 
-    /***/90:
+    /***/77:
     /***/function (module, exports) {
 
-        module.exports = __webpack_require__(90);
+        module.exports = __webpack_require__(77);
 
         /***/
     }
 
     /******/ });
 //# sourceMappingURL=index.js.map
-
-/***/ }),
-
-/***/ 90:
-/***/ (function(module, exports) {
-
-module.exports = require("electron");
 
 /***/ })
 
