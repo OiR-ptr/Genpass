@@ -1,9 +1,10 @@
 import React from "react";
 import Moment from "moment";
 
-import { ADD_TAG, SELECT_TAG, SAVE_TAG } from "../actions/Actions";
+import { LOAD_TAGS, ADD_TAG, SELECT_TAG, SAVE_TAG } from "../actions/Actions";
 
 const initialState = {
+    isLoaded: false,
     selected_tag: {
         tagID: 1,
         title: "example",
@@ -18,6 +19,16 @@ const initialState = {
 
 export default function tagReducer(state = initialState, action) {
     switch(action.type) {
+        case LOAD_TAGS:
+            return Object.assign({}, state, {
+                isLoaded: true,
+                tags: action.tags,
+                tag_count: action.tags.length,
+                selected_tag: Object.assign({}, state.selected_tag, {
+                    tagID: action.tags.length + 1,
+                })
+            });
+
         case ADD_TAG:
             var t = {
                 tagID: action.tagID,
@@ -48,7 +59,8 @@ export default function tagReducer(state = initialState, action) {
                 newtags.push(action.tag);
             }
             return Object.assign({}, state, {
-                tags: newtags
+                tags: newtags,
+                tag_count: newtags.length,
             });
 
         default:

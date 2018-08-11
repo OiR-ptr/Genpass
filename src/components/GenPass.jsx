@@ -1,19 +1,18 @@
 import React from "react";
 
 import Paper from "material-ui/Paper";
+import CircularProgress from "material-ui/CircularProgress";
 import TagList from "../containers/TagList";
 import MainContent from "../containers/MainContent";
 import PasswordDialog from "../containers/PasswordDialog";
-import {firebaseApp} from "../firebase/firebaseinstance";
-import { connect } from "react-redux";
 
-class GenPass extends React.Component {
+export default class GenPass extends React.Component {
     componentDidMount() {
-        console.log(firebaseApp.auth().currentUser);
+        this.props.loadTags();
     }
 
     render() {
-        return (
+        return this.props.isLoaded ? (
             <Paper>
                 <Paper style = {{width: "30%", float: "left"}} >
                     <TagList />
@@ -25,7 +24,7 @@ class GenPass extends React.Component {
                 </Paper>
                 <PasswordDialog />
             </Paper>
-        );
+        )
+        : <CircularProgress size={40} thickness={5} />;
     }
 }
-export default connect()(GenPass);

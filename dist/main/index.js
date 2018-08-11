@@ -106,7 +106,7 @@ __WEBPACK_IMPORTED_MODULE_0_electron__["app"].on("activate", (_e, hasVisibleWind
 let win;
 
 function createWindow() {
-    win = new __WEBPACK_IMPORTED_MODULE_0_electron__["BrowserWindow"]();
+    win = new __WEBPACK_IMPORTED_MODULE_0_electron__["BrowserWindow"]({ width: 1024, height: 768 });
     win.loadURL(`file://${__dirname}/../../index.html`);
     win.on("close", () => {
         win = null;
