@@ -1,4 +1,4 @@
-for 2017 last term.
+for 2018 first term.
 
 ## Description
 
@@ -7,6 +7,8 @@ for 2017 last term.
  Then, Manage seed-value on Firebase.
 
 ## Usage
+
+ * npm install ( or npm install --force (for Node10 or more))
 
  * **You have to make project from [Firebase](https://firebase.google.com/).**
 
