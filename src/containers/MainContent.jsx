@@ -1,9 +1,9 @@
-import React from "react";
 import {connect} from "react-redux";
 import { reduxForm } from "redux-form";
 
 import MainContent from "../components/MainContent";
 import {saveTagEvent, generatePasswordEvent} from "../actions/Actions";
+import {firebaseApp} from "../firebase/firebaseinstance";
 
 let contactForm = reduxForm({
     form: 'contact',
@@ -23,6 +23,9 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
     return {
         saveTag(obj) {
+            var tagsRef = firebaseApp.database().ref(`tags/${obj.tagID}`);
+            tagsRef.update(obj);
+            
             dispatch(saveTagEvent(obj))
         },
         generatePassword(seed) {

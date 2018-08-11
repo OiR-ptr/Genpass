@@ -9,9 +9,11 @@ export const GENERATE_PASS_DONE = 'GENERATE_PASS_DONE';
 
 export function loadTagsEvent(tags) {
     var tagarray = [];
-    Object.keys(tags).forEach(val => {
-        tagarray.push(tags[val]);
-    });
+    if(tags) {
+        Object.keys(tags).forEach(val => {
+            tagarray.push(tags[val]);
+        });
+    }
     return {
         type: LOAD_TAGS,
         tags: tagarray,

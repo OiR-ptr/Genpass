@@ -13,12 +13,13 @@ function mapDispatchToProps(dispatch) {
     return {
         loadTags() {
             var tagsRef = firebaseApp.database().ref("tags");
-
+            
             tagsRef.off();
-
-            tagsRef.on("value", (dataSnapShot) => {
-                dispatch(loadTagsEvent(dataSnapShot.val()));
-            });
+            tagsRef.once("value", 
+                (dataSnapShot) => {
+                    dispatch(loadTagsEvent(dataSnapShot.val()));
+                }
+            );
         }
     };
 }

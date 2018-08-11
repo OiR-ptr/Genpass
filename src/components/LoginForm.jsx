@@ -17,7 +17,7 @@ export default class LoginForm extends React.Component {z
 
     render() {
         return(
-            <Paper>
+            <Paper style={{ textAlign: 'center' }}>
                 <TextField name="email" floatingLabelText="Email" value={this.state.email}
                     onChange={ (e) => { this.setState({email: e.target.value}); }} /><br />
                     
