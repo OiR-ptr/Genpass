@@ -21,7 +21,7 @@ export default class LoginForm extends React.Component {z
                 <TextField name="email" floatingLabelText="Email" value={this.state.email}
                     onChange={ (e) => { this.setState({email: e.target.value}); }} /><br />
                     
-                <TextField name="password" floatingLabelText="Password" value={this.state.password}
+                <TextField name="password" floatingLabelText="Password" value={this.state.password} type="password"
                     onChange={ (e) => { this.setState({password: e.target.value}); }} /><br />
 
                 <RaisedButton label="SignIn" labelPosition="before" secondary={true} icon={ <LockOpen /> } onClick={(e) => {

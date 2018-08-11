@@ -84225,7 +84225,7 @@ class LoginForm extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component 
                     this.setState({ email: e.target.value });
                 } }),
             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("br", null),
-            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3_material_ui_TextField___default.a, { name: "password", floatingLabelText: "Password", value: this.state.password,
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3_material_ui_TextField___default.a, { name: "password", floatingLabelText: "Password", value: this.state.password, type: "password",
                 onChange: e => {
                     this.setState({ password: e.target.value });
                 } }),
