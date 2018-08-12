@@ -7,7 +7,9 @@ import {AuthSucceededEvent, AuthFailedEvent, AuthDone} from "../actions/AuthActi
 
 function mapStateToProps(state) {
     return {
-        isAuth: (state.auth.isAuth || state.auth.closing),
+        isAuthSuccess: state.auth.isAuthSuccess,
+        isAuthFailed: state.auth.isAuthFailed,
+        dialogClose: state.auth.closing,
     };
 }
 
@@ -22,6 +24,7 @@ function mapDispatchToProps(dispatch) {
             }).catch( error => {
                 console.log("catch. auth failed..." + error);
                 dispatch(AuthFailedEvent());
+                dispatch(AuthDone());
             });
         },
         signUp(email, password) {
@@ -33,11 +36,14 @@ function mapDispatchToProps(dispatch) {
             }).catch( error => {
                 console.log("catch. create user failed..." + error);
                 dispatch(AuthFailedEvent());
+                dispatch(AuthDone());
             });
         },
-        
         gotoContentPage() {
             dispatch(push('/content'));
+            dispatch(AuthDone());
+        },
+        closeDialog() {
             dispatch(AuthDone());
         }
     };

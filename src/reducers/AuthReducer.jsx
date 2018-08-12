@@ -1,8 +1,8 @@
 import {AUTHENTIFICATION_SUCCEEDED, AUTHENTIFICATION_FAILED, AUTHENTIFICATION_DONE} from "../actions/AuthActions";
 
 const initialState = {
-    isAuth: false,
-
+    isAuthSuccess: false,
+    isAuthFailed: false,
     closing: false,
 };
 
@@ -11,13 +11,15 @@ export default function authReducer(state = initialState, action) {
         case AUTHENTIFICATION_SUCCEEDED:
             console.log("auth reducer : isAuth success");
             return Object.assign({}, state, {
-                isAuth: true,
+                isAuthSuccess: true,
+                isAuthFailed: false,
             });
 
         case AUTHENTIFICATION_FAILED:
             console.log("auth reducer : isAuth fail");
             return Object.assign({}, state, {
-                isAuth: false,
+                isAuthFailed: true,
+                isAuthSuccess: false,
             });
 
         case AUTHENTIFICATION_DONE:

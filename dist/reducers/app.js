@@ -67589,8 +67589,8 @@ Steckerbrett.prototype.setPlugs = function(plugs) {
 
 
 const initialState = {
-    isAuth: false,
-
+    isAuthSuccess: false,
+    isAuthFailed: false,
     closing: false
 };
 
@@ -67599,13 +67599,15 @@ function authReducer(state = initialState, action) {
         case __WEBPACK_IMPORTED_MODULE_0__actions_AuthActions__["c" /* AUTHENTIFICATION_SUCCEEDED */]:
             console.log("auth reducer : isAuth success");
             return Object.assign({}, state, {
-                isAuth: true
+                isAuthSuccess: true,
+                isAuthFailed: false
             });
 
         case __WEBPACK_IMPORTED_MODULE_0__actions_AuthActions__["b" /* AUTHENTIFICATION_FAILED */]:
             console.log("auth reducer : isAuth fail");
             return Object.assign({}, state, {
-                isAuth: false
+                isAuthFailed: true,
+                isAuthSuccess: false
             });
 
         case __WEBPACK_IMPORTED_MODULE_0__actions_AuthActions__["a" /* AUTHENTIFICATION_DONE */]:
@@ -68886,7 +68888,9 @@ NavLink.defaultProps = {
 
 function mapStateToProps(state) {
     return {
-        isAuth: state.auth.isAuth || state.auth.closing
+        isAuthSuccess: state.auth.isAuthSuccess,
+        isAuthFailed: state.auth.isAuthFailed,
+        dialogClose: state.auth.closing
     };
 }
 
@@ -68900,6 +68904,7 @@ function mapDispatchToProps(dispatch) {
             }).catch(error => {
                 console.log("catch. auth failed..." + error);
                 dispatch(Object(__WEBPACK_IMPORTED_MODULE_4__actions_AuthActions__["e" /* AuthFailedEvent */])());
+                dispatch(Object(__WEBPACK_IMPORTED_MODULE_4__actions_AuthActions__["d" /* AuthDone */])());
             });
         },
         signUp(email, password) {
@@ -68910,11 +68915,14 @@ function mapDispatchToProps(dispatch) {
             }).catch(error => {
                 console.log("catch. create user failed..." + error);
                 dispatch(Object(__WEBPACK_IMPORTED_MODULE_4__actions_AuthActions__["e" /* AuthFailedEvent */])());
+                dispatch(Object(__WEBPACK_IMPORTED_MODULE_4__actions_AuthActions__["d" /* AuthDone */])());
             });
         },
-
         gotoContentPage() {
             dispatch(Object(__WEBPACK_IMPORTED_MODULE_1_react_router_redux__["b" /* push */])('/content'));
+            dispatch(Object(__WEBPACK_IMPORTED_MODULE_4__actions_AuthActions__["d" /* AuthDone */])());
+        },
+        closeDialog() {
             dispatch(Object(__WEBPACK_IMPORTED_MODULE_4__actions_AuthActions__["d" /* AuthDone */])());
         }
     };
@@ -86907,7 +86915,7 @@ class LoginForm extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component 
     render() {
         return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
             __WEBPACK_IMPORTED_MODULE_1_material_ui_Paper___default.a,
-            { style: { textAlign: 'center' } },
+            { style: { textAlign: "center" } },
             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3_material_ui_TextField___default.a, { name: "email", floatingLabelText: "Email", value: this.state.email,
                 onChange: e => {
                     this.setState({ email: e.target.value });
@@ -86924,11 +86932,17 @@ class LoginForm extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component 
             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_material_ui_RaisedButton___default.a, { label: "SignUp", secondary: true, onClick: e => {
                     this.props.signUp(this.state.email, this.state.password);
                 } }),
-            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4_material_ui_Snackbar___default.a, { open: this.props.isAuth,
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4_material_ui_Snackbar___default.a, { open: this.props.isAuthSuccess && !this.props.dialogClose,
                 message: "Authentication succeeded",
                 autoHideDuration: 2000,
                 onRequestClose: () => {
                     this.props.gotoContentPage();
+                } }),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4_material_ui_Snackbar___default.a, { open: this.props.isAuthFailed && !this.props.dialogClose,
+                message: "Authentication failed",
+                autoHideDuration: 2000,
+                onRequestClose: () => {
+                    this.props.closeDialog();
                 } })
         );
     }

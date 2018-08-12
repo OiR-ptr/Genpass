@@ -17,7 +17,7 @@ export default class LoginForm extends React.Component {z
 
     render() {
         return(
-            <Paper style={{ textAlign: 'center' }}>
+            <Paper style={{ textAlign: "center" }}>
                 <TextField name="email" floatingLabelText="Email" value={this.state.email}
                     onChange={ (e) => { this.setState({email: e.target.value}); }} /><br />
                     
@@ -34,7 +34,7 @@ export default class LoginForm extends React.Component {z
                     }
                 } />
 
-                <Snackbar open={this.props.isAuth}
+                <Snackbar open={(this.props.isAuthSuccess && !this.props.dialogClose)}
                     message="Authentication succeeded" 
                     autoHideDuration={2000} 
                     onRequestClose={ () => {
@@ -42,12 +42,13 @@ export default class LoginForm extends React.Component {z
                     }
                 } />
                 
-                {/* <Snackbar open={this.state.authFailed}
+                <Snackbar open={(this.props.isAuthFailed && !this.props.dialogClose)}
                     message="Authentication failed" 
                     autoHideDuration={2000}
                     onRequestClose={ () => {
-                        this.setState({ authFailed: false })
-                }}/> */}
+                        this.props.closeDialog();
+                    }
+                } />
             </Paper>
         );
     }
