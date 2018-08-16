@@ -1,25 +1,20 @@
 import React from "react";
-import { connect } from "react-redux";
 import { Field } from "redux-form";
-
 import Moment from "moment";
 
-import Dialog from "material-ui/Dialog";
-import TextField from "material-ui/TextField";
-import FlatButton from "material-ui/FlatButton";
-import RaisedButton from "material-ui/RaisedButton";
-import Done from "material-ui/svg-icons/action/done";
-import VpnKey from "material-ui/svg-icons/communication/vpn-key";
+import TextField from "@material-ui/core/TextField";
+import Button from "@material-ui/core/Button";
+import Divider from "@material-ui/core/Divider";
+import Done from "@material-ui/icons/Done";
+import VpnKey from "@material-ui/icons/VpnKey";
 
 const renderTextField = ({
     input,
     label,
-    meta: { touched, error },
     ...custom
   }) =>
     <TextField
-      floatingLabelText={label}
-      errorText={touched && error}
+      label={label}
       {...input}
       {...custom}
     />
@@ -28,7 +23,9 @@ export default class MainContent extends React.Component {
     render() {
         return (
             <form>
-                <center>{this.props.tag.tagID}</center>
+                <center>{this.props.tag.tagID} : {this.props.tag.updateAt}</center> <br />
+                <Divider />
+
                 <Field 
                     name="title"
                     label="Title"
@@ -42,8 +39,6 @@ export default class MainContent extends React.Component {
                 <Field 
                     name="detail"
                     label="Detail"
-                    rows={2}
-                    multiLine={true}
                     component={renderTextField}
                 /><br />
                 <Field 
@@ -51,12 +46,9 @@ export default class MainContent extends React.Component {
                     label="Seed"
                     component={renderTextField}
                 /><br />
-                <center>{this.props.tag.updateAt}</center><br />
-                
-                <FlatButton 
+
+                <Button 
                     type="submit"
-                    label="Save"
-                    labelPosition="before"
                     icon={ <Done /> }
                     style={{ float: "right" }}
                     onClick={this.props.handleSubmit(
@@ -71,11 +63,8 @@ export default class MainContent extends React.Component {
                             })
                         }
                     )}
-                />
-                <RaisedButton 
-                    label="Generate"
-                    labelPosition="before"
-                    primary={true}
+                >Save</Button>
+                <Button 
                     icon={ <VpnKey /> }
                     style={{ float: "right" }}
                     onClick={this.props.handleSubmit(
@@ -83,7 +72,7 @@ export default class MainContent extends React.Component {
                             this.props.generatePassword(values.seed);
                         }
                     )}
-                />
+                >Generate</Button>
             </form>
         );
     }

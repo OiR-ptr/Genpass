@@ -1,10 +1,12 @@
 import React from "react";
 import Tag from "../containers/Tag";
 
-import {GridList, GridTile} from "material-ui/GridList";
-import IconButton from "material-ui/IconButton";
-import PlaylistAdd from "material-ui/svg-icons/av/playlist-add";
-import Subheader from "material-ui/Subheader";
+import GridList from "@material-ui/core/GridList";
+import ListSubheader from "@material-ui/core/ListSubheader";
+import GridTile from "@material-ui/core/GridListTile";
+import GridListTileBar from "@material-ui/core/GridListTileBar";
+import IconButton from "@material-ui/core/IconButton";
+import PlaylistAdd from "@material-ui/icons/PlaylistAdd";
 
 export default class TagList extends React.Component {
     render() {
@@ -27,21 +29,15 @@ export default class TagList extends React.Component {
                 overflowX: 'auto',
             },
             titleStyle: {
-                height: "50px"
+                height: "50px",
             },
         };
 
         return (
-            <GridList cellHeight = {"auto"} cols = {2} style = {{overflowY: "auto"}}>
-                <GridTile
-                    key = {1}
-                    title = "REGISTER"
-                    titleStyle={styles.titleStyle}
-                    actionIcon = { <IconButton onClick = {(e) => { this.props.addTag(this.props.tagID + 1) }}><PlaylistAdd /></IconButton> }
-                    cols = {2}
-                    rows = {1}
-                    >
-                    <div style = {styles.titleStyle} />
+            <GridList cellHeight = {"auto"} cols = {1} style = {{overflowY: "auto", height: "100%"}}>
+                <GridTile key = "Subheader" cols = {1} rows = {1} >
+                    <ListSubheader component="div">REGISTER</ListSubheader>
+                    <GridListTileBar actionIcon = { <IconButton onClick = {(e) => { this.props.addTag(this.props.tagID + 1) }}><PlaylistAdd /></IconButton> }/>
                 </GridTile>
                 {list}
             </GridList>
