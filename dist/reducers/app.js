@@ -67982,14 +67982,12 @@ const initialState = {
 function authReducer(state = initialState, action) {
     switch (action.type) {
         case __WEBPACK_IMPORTED_MODULE_0__actions_AuthActions__["c" /* AUTHENTIFICATION_SUCCEEDED */]:
-            console.log("auth reducer : isAuth success");
             return Object.assign({}, state, {
                 isAuthSuccess: true,
                 isAuthFailed: false
             });
 
         case __WEBPACK_IMPORTED_MODULE_0__actions_AuthActions__["b" /* AUTHENTIFICATION_FAILED */]:
-            console.log("auth reducer : isAuth fail");
             return Object.assign({}, state, {
                 isAuthFailed: true,
                 isAuthSuccess: false
@@ -67997,6 +67995,8 @@ function authReducer(state = initialState, action) {
 
         case __WEBPACK_IMPORTED_MODULE_0__actions_AuthActions__["a" /* AUTHENTIFICATION_DONE */]:
             return Object.assign({}, state, {
+                isAuthSuccess: false,
+                isAuthFailed: false,
                 closing: !state.closing
             });
 
@@ -69222,22 +69222,18 @@ function mapDispatchToProps(dispatch) {
             __WEBPACK_IMPORTED_MODULE_2__firebase_firebaseinstance__["a" /* firebaseApp */].auth().signInWithEmailAndPassword(email, password).then(value => {
                 console.log("then. auth succeess.");
                 dispatch(Object(__WEBPACK_IMPORTED_MODULE_4__actions_AuthActions__["f" /* AuthSucceededEvent */])());
-                dispatch(Object(__WEBPACK_IMPORTED_MODULE_4__actions_AuthActions__["d" /* AuthDone */])());
             }).catch(error => {
                 console.log("catch. auth failed..." + error);
                 dispatch(Object(__WEBPACK_IMPORTED_MODULE_4__actions_AuthActions__["e" /* AuthFailedEvent */])());
-                dispatch(Object(__WEBPACK_IMPORTED_MODULE_4__actions_AuthActions__["d" /* AuthDone */])());
             });
         },
         signUp(email, password) {
             __WEBPACK_IMPORTED_MODULE_2__firebase_firebaseinstance__["a" /* firebaseApp */].auth().createUserWithEmailAndPassword(email, password).then(value => {
                 console.log("then. auth success.");
                 dispatch(Object(__WEBPACK_IMPORTED_MODULE_4__actions_AuthActions__["f" /* AuthSucceededEvent */])());
-                dispatch(Object(__WEBPACK_IMPORTED_MODULE_4__actions_AuthActions__["d" /* AuthDone */])());
             }).catch(error => {
                 console.log("catch. create user failed..." + error);
                 dispatch(Object(__WEBPACK_IMPORTED_MODULE_4__actions_AuthActions__["e" /* AuthFailedEvent */])());
-                dispatch(Object(__WEBPACK_IMPORTED_MODULE_4__actions_AuthActions__["d" /* AuthDone */])());
             });
         },
         gotoContentPage() {
@@ -69245,6 +69241,7 @@ function mapDispatchToProps(dispatch) {
             dispatch(Object(__WEBPACK_IMPORTED_MODULE_4__actions_AuthActions__["d" /* AuthDone */])());
         },
         closeDialog() {
+            dispatch(Object(__WEBPACK_IMPORTED_MODULE_4__actions_AuthActions__["d" /* AuthDone */])());
             dispatch(Object(__WEBPACK_IMPORTED_MODULE_4__actions_AuthActions__["d" /* AuthDone */])());
         }
     };
@@ -103708,12 +103705,9 @@ exports.default = _default;
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_redux__ = __webpack_require__(16);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_PasswordDialog__ = __webpack_require__(802);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__actions_Actions__ = __webpack_require__(30);
-
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react_redux__ = __webpack_require__(16);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_PasswordDialog__ = __webpack_require__(802);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__actions_Actions__ = __webpack_require__(30);
 
 
 
@@ -103729,12 +103723,12 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
     return {
         passwordDone() {
-            dispatch(Object(__WEBPACK_IMPORTED_MODULE_3__actions_Actions__["h" /* clearPasswordEvent */])());
+            dispatch(Object(__WEBPACK_IMPORTED_MODULE_2__actions_Actions__["h" /* clearPasswordEvent */])());
         }
     };
 }
 
-/* harmony default export */ __webpack_exports__["a"] = (Object(__WEBPACK_IMPORTED_MODULE_1_react_redux__["b" /* connect */])(mapStateToProps, mapDispatchToProps)(__WEBPACK_IMPORTED_MODULE_2__components_PasswordDialog__["a" /* default */]));
+/* harmony default export */ __webpack_exports__["a"] = (Object(__WEBPACK_IMPORTED_MODULE_0_react_redux__["b" /* connect */])(mapStateToProps, mapDispatchToProps)(__WEBPACK_IMPORTED_MODULE_1__components_PasswordDialog__["a" /* default */]));
 
 /***/ }),
 /* 802 */
@@ -103764,6 +103758,12 @@ function mapDispatchToProps(dispatch) {
 
 
 class PasswordDialog extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component {
+    shouldComponentUpdate(nextProps) {
+        console.log("open? " + nextProps.open);
+        console.log("pass: " + nextProps.password);
+        return true;
+    }
+
     render() {
         return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
             __WEBPACK_IMPORTED_MODULE_1__material_ui_core_Dialog___default.a,

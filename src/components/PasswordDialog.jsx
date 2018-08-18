@@ -15,7 +15,9 @@ export default class PasswordDialog extends React.Component {
                     <DialogContentText>{this.props.password}</DialogContentText>
                 </DialogContent>
                 <DialogActions>
-                    <Button variant="contained" onClick={ () => { this.props.passwordDone() } } >end</Button>
+                    <Button variant="contained" onClick={ () => {
+                        this.props.passwordDone(); 
+                    } } >end</Button>
                 </DialogActions>
             </Dialog>
         );

@@ -20,11 +20,9 @@ function mapDispatchToProps(dispatch) {
             .then( value => {
                 console.log("then. auth succeess.");
                 dispatch(AuthSucceededEvent());
-                dispatch(AuthDone());
             }).catch( error => {
                 console.log("catch. auth failed..." + error);
                 dispatch(AuthFailedEvent());
-                dispatch(AuthDone());
             });
         },
         signUp(email, password) {
@@ -32,11 +30,9 @@ function mapDispatchToProps(dispatch) {
             .then( value => {
                 console.log("then. auth success.");
                 dispatch(AuthSucceededEvent());
-                dispatch(AuthDone());
             }).catch( error => {
                 console.log("catch. create user failed..." + error);
                 dispatch(AuthFailedEvent());
-                dispatch(AuthDone());
             });
         },
         gotoContentPage() {
@@ -44,6 +40,7 @@ function mapDispatchToProps(dispatch) {
             dispatch(AuthDone());
         },
         closeDialog() {
+            dispatch(AuthDone());
             dispatch(AuthDone());
         }
     };

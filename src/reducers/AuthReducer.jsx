@@ -9,14 +9,12 @@ const initialState = {
 export default function authReducer(state = initialState, action) {
     switch(action.type) {
         case AUTHENTIFICATION_SUCCEEDED:
-            console.log("auth reducer : isAuth success");
             return Object.assign({}, state, {
                 isAuthSuccess: true,
                 isAuthFailed: false,
             });
 
         case AUTHENTIFICATION_FAILED:
-            console.log("auth reducer : isAuth fail");
             return Object.assign({}, state, {
                 isAuthFailed: true,
                 isAuthSuccess: false,
@@ -24,6 +22,8 @@ export default function authReducer(state = initialState, action) {
 
         case AUTHENTIFICATION_DONE:
             return Object.assign({}, state, {
+                isAuthSuccess: false,
+                isAuthFailed: false,
                 closing: !(state.closing),
             });
 
